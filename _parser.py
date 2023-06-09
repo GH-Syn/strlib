@@ -20,4 +20,8 @@ def strip_punctuation(value):
         raise ValueError("{val} is not a valid punctuation character"
                          .format(val=value))
 
-    # TODO ...
+    for literal in _literals:
+        if literal in value:
+            value.remove(literal)
+
+    return value
