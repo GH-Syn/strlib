@@ -4,7 +4,58 @@ Author: Joshua Rose <joshuarose099@gmail.com>
 String operations and mutability functions for improvement to `re`.
 """
 
-LITERALS = [".", ",", "~", "`", "'", '"', "\\", "-", "=", "+", "&", "%", "$", "#", "!"]
+LITERALS = [
+    ".",
+    ",",
+    "~",
+    "`",
+    "'",
+    '"',
+    "\\",
+    "-",
+    "=",
+    "+",
+    "&",
+    "%",
+    "$",
+    "#",
+    "!",
+]
+SYMBOLS = {
+    "%21": "!",
+    "%22": '"',
+    "%23": "#",
+    "%24": "$",
+    "%25": "%",
+    "%26": "&",
+    "%27": "'",
+    "%28": "(",
+    "%29": ")",
+    "%2A": "*",
+    "%2B": "+",
+    "%2C": ",",
+    "%2D": "-",
+    "%2E": ".",
+    "%2F": "/",
+    "%3A": ":",
+    "%3B": ";",
+    "%3C": "<",
+    "%3D": "=",
+    "%3E": ">",
+    "%3F": "?",
+    "%40": "@",
+    "%5B": "[",
+    "%5C": "\\",
+    "%5D": "]",
+    "%5E": "^",
+    "%5F": "_",
+    "%60": "`",
+    "%7B": "{",
+    "%7C": "|",
+    "%7D": "}",
+    "%7E": "~",
+}
+
 
 __all__ = ["LITERALS"]
 
@@ -45,3 +96,16 @@ def strip_punctuation(value, *chars):
             value.remove(literal)
 
     return value
+
+
+def parse_url(url, *_chars):
+    """Parse url into an alpha-numeric string.
+
+    :param *chars: characters to exclude.
+    """
+
+    decoded_url = "".join(
+        SYMBOLS.get(char, char) for char in url if char not in _chars
+    )
+
+    return decoded_url
