@@ -11,7 +11,7 @@ def _is_chars(*_chars):
 
     return all(char in _literals for char in _chars)
 
-def strip_punctuation(value):
+def strip_punctuation(value, *chars):
     """Remove punctuation characters in `value`.
 
      >>> sentence = "The quick brown fox .jumped over the lazy dog."
@@ -19,7 +19,9 @@ def strip_punctuation(value):
      >>> "The quick brown fox jumped over the lazy dog"
     """
 
-    if not _is_char(value):
+    if len(chars) and not _is_chars(chars):
+        raise ValueError("One or more chars aren\'t valid characters")
+    elif not _is_char(value) and not len(chars):
         raise ValueError("{val} is not a valid punctuation character"
                          .format(val=value))
 
