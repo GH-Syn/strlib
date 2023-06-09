@@ -9,7 +9,7 @@ def _is_char(_char):
 def _is_chars(*_chars):
     """Assert all chars are valid punctuation characters."""
 
-    return all(_char in _literals for char in _chars)
+    return all(char in _literals for char in _chars)
 
 def strip_punctuation(value):
     """Remove punctuation characters in `value`.
