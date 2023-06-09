@@ -3,7 +3,7 @@ _literals = [".", ",", "~", "`", "\'", "\"", "\\",
 
 def _is_char(_char):
     """Assert `char` is valid punctuation character."""
-    return char in _literals
+    return _char in _literals
 
 def _is_chars(*_chars):
     """Assert all chars are valid punctuation characters."""
