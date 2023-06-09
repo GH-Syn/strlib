@@ -1,19 +1,14 @@
 *draft.md
 *config.json
 *.ini
-!pytest.ini
-*.txt
 *.log
-*draft.md
-*config.json
-*.ini
-!pytest.ini
-*.txt
-*.log
-*.pe-compiled / optimized files
+# *.pe-compiled / optimized files
 __pycache__/
 *.py[cod]
 *$py.class
+*.html
+*.css
+*.js
 
 # Distribution / packaging
 dist/
