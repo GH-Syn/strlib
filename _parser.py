@@ -4,9 +4,6 @@ Author: Joshua Rose <joshuarose099@gmail.com>
 String operations and mutability functions for improvement to `re`.
 """
 
-from typing_extensions import deprecated
-
-
 LITERALS = [".", ",", "~", "`", "\'", "\"", "\\",
              "-", "=", "+", "&", "%", "$", "#", "!"]
 
@@ -17,7 +14,6 @@ def _is_char(_char):
 
     return _char in LITERALS
 
-@deprecated("introduced _is_char for character validation")
 def _is_chars(*_chars):
     """Assert all chars are valid punctuation characters."""
 
