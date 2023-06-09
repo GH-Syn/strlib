@@ -1,0 +1,29 @@
+﻿strlib.\_parser
+===============
+
+.. automodule:: strlib._parser
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      strip_punctuation
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
