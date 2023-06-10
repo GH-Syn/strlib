@@ -5,7 +5,7 @@ import sys
 
 sys.path.append(os.getcwd())
 
-from parser._decorators import prototype
+from ..strlib._decorators import prototype
 
 
 class TestDecorators(unittest.TestCase):

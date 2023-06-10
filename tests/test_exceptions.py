@@ -5,7 +5,7 @@ import sys
 
 sys.path.append(os.getcwd())
 
-from parser._exceptions import InvalidCharacter
+from ..strlib._exceptions import InvalidCharacter
 
 
 class TestInvalidCharacter(unittest.TestCase):
