@@ -4,11 +4,34 @@
    contain the root `toctree` directive.
 
 
-Contents
-========
+======
+Strlib
+======
 
-.. toctree::
-   :maxdepth: 2
-   :titlesonly:
+Strlib removes the boilerplate and hundreds of utility functions, allowing you
+to focus on what matters.
 
-   modules/_parser
+Trim sentences::
+
+    sentence = "The quick brown fox .jumped over the lazy dog."
+    formatted_sentence = strip_punctuation(sentence)
+    print(formatted_sentence)
+
+    >>> "The quick brown fox jumped over the lazy dog"
+
+Decode url strings::
+
+    import strlib
+
+    url_string = strlib.parse_url("https%3A%2F%2Fgoogle%2Ecom")
+    print(url_string)
+
+    >>> "https://google.com"
+
+Exclude characters from a url string::
+
+    url_string = _parser.parse_url("https%3A%2F%2Fpython%2Eorg", ".")  # ...
+    print(url_string)
+
+    >>> "https://python%2Eorg"
+
