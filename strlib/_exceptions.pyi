@@ -1,7 +1,7 @@
 """
-Author: Joshua Rose <joshuarose099@gmail.com>
-
-Types for _exceptions.py
+This module contains exception classes.
+These classes are used to define errors
+that aren't part of the standard library.
 """
 
 from _typeshed import NoneType

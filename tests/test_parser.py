@@ -20,6 +20,14 @@ class TestParser(unittest.TestCase):
         with self.assertRaises(InvalidCharacterError):
             _parser.strip_punctuation("test", "nonchar")  # pyright: ignore
 
+    def test_chars(self):
+        _parser.strip_punctuation("test", ".")  # pyright: ignore
+
+    def test_terminal(self):
+        value = _parser.strip_punctuation(".test.", ".", ignore_terminal=False)
+
+        assert value == "test."
+
     def test_url(self):
         url_string = _parser.parse_url("https%3A%2F%2Fgoogle%2Ecom")
 
