@@ -3,6 +3,7 @@ import unittest
 from _exceptions import InvalidCharacter
 import _parser
 from _parser import LITERALS as literals
+from _parser import parse_breaks
 
 
 class TestParser(unittest.TestCase):
@@ -32,3 +33,19 @@ class TestParser(unittest.TestCase):
         trimmed_text = _parser.strip_punctuation(text)
 
         assert trimmed_text == "The brown fox"
+
+    def test_open_tag(self):
+        text = "The<br>Brown<br>Fox"
+        expected_result = "The\nBrown\nFox"
+
+        result = _parser.parse_breaks(text)
+
+        assert result == expected_result
+
+    def test_close_tag(self):
+        text = "The<br></br>Brown<br></br>Fox"
+        expected_result = "The\nBrown\nFox"
+
+        result = _parser.parse_breaks(text)
+
+        assert result == expected_result

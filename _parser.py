@@ -6,6 +6,7 @@ String operations and mutability functions for improvement to `re`.
 `Exceptions are defined in ``_exceptions.py```
 """
 
+import re
 from _exceptions import InvalidCharacter
 
 
@@ -62,7 +63,7 @@ SYMBOLS = {
 }
 
 
-__all__ = ["LITERALS", "SYMBOLS"]
+__all__ = ["LITERALS", "SYMBOLS", "parse_breaks", "parse_url"]
 
 
 def _is_char(_char):
@@ -116,3 +117,12 @@ def parse_url(url, **kwargs):
             url = url.replace(symbol, replacement)
 
     return url
+
+
+def parse_breaks(string):
+    """Parse bs4 breaks into line breaks"""
+
+    stripped_string = string.replace("</br>", "")
+    line_broken_string = stripped_string.replace("<br>", "\n")
+
+    return line_broken_string
