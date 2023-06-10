@@ -1,6 +1,11 @@
 import unittest
 
-from .._decorators import prototype
+import os
+import sys
+
+sys.path.append(os.getcwd())
+
+from parser._decorators import prototype
 
 
 class TestDecorators(unittest.TestCase):

@@ -1,9 +1,14 @@
 import unittest
 
-from .._exceptions import InvalidCharacter
-from .. import _parser
-from .._parser import LITERALS as literals
-from .._parser import convert_break_tags as parse_breaks
+import os
+import sys
+
+sys.path.append(os.getcwd())
+
+from parser._exceptions import InvalidCharacter
+from parser import _parser
+from parser._parser import LITERALS as literals
+from parser._parser import convert_break_tags as parse_breaks
 
 
 class TestParser(unittest.TestCase):
