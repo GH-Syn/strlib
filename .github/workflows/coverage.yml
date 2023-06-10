@@ -11,12 +11,12 @@ on:
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
 concurrency:
   group: gh-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   test-and-upstream:
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         python-version: ["3.11"]
     runs-on: ubuntu-latest
