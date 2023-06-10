@@ -25,7 +25,7 @@ class TestParser(unittest.TestCase):
 
     def test_url_exclude(self):
         url_string = _parser.parse_url(
-            "https%3A%2F%2Fpython%2Eorg", "."  # pyright: ignore
+            "https%3A%2F%2Fpython%2Eorg", exclude="."  # pyright: ignore
         )  # ...
 
         assert url_string == "https://python%2Eorg"
