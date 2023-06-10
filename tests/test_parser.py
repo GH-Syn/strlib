@@ -9,11 +9,6 @@ class TestParser(unittest.TestCase):
         for literal in literals:
             assert _parser._is_char(literal)
 
-    def test__is_chars(self):
-        for literal in literals:
-            # NOTE deprecation warning is ignored via pyright
-            self.subTest(_parser._is_chars(literal))  # pyright: ignore
-
     def test_valid_literals(self):
         with self.assertRaises(PendingDeprecationWarning):
             _parser.strip_punctuation("test", "nonchar")  # pyright: ignore
