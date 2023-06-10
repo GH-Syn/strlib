@@ -8,9 +8,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.html
-*.css
-*.js
 
 # Distribution / packaging
 dist/
@@ -45,9 +42,6 @@ env/
 # Jupyter Notebook
 .ipynb_checkpoints/
 
-# Sphinx documentation
-docs/_build/
-
 # Compiled Python modules
 *.pyc
 
@@ -64,7 +58,6 @@ Pipfile.lock
 .pytype/
 
 # Ignore coverage
-htmlcov/
 
 # Neovim
 [._]*.s[a-w][a-z]
@@ -80,7 +73,5 @@ CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 compile_commands.json
-Makefile
-
 
 htmlcov/
