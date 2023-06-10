@@ -1,28 +1,24 @@
-===
-FAQ
-===
-
 Purpose
 =======
 
-This library is an expanse of many functions I find myself writing due to not
-enough support or customizability from existing libraries. This library hopes
-to give both the boilerplate and the mutability to the user, therefore eliminating
-mental and physical overhead having to write out string utility functions.
-This library will hopefully grow over time, as I add more to it.
+The purpose of this library is to provide a wide range of functions that
+address the author's specific needs, which are not adequately met by existing libraries.
 
-What can this library do that others can't?
-===========================================
+The motivation behind creating this library was the difficulty faced in organizing
+and documenting numerous utility functions during the initial stages of developing the 'urban' project.
+The goal of this library is to reduce the burden of utility functions by offering modularized formatting utilities and handling boilerplate code,
+while also allowing for flexibility and reducing the mental and physical effort required to write string utility functions.
 
-While ``re`` has very powerful syntax, it's difficult to utilize if you're not
-already familiar with the regular expression syntax. This library minimizes
-the prerequisite knowledge to utilize re, and, in fully plain English, gives
-the user what ``re`` lacks in comprehensiveness.
+What distinguishes this library from others?
+--------------------------------------------
 
-For example, ``strlib`` is great at handling URL formats. You *could* use `re`,
-``urllib``, or ``strlib``. Let me explain why the former would suit most cases.
+While the re library offers powerful syntax for regular expressions, it can be challenging to utilize if you are not already familiar with its syntax.
+This library aims to minimize the prerequisite knowledge required to work with regular expressions and provides a more comprehensive solution in plain English.
 
-In ``re``, you could do something like the following::
+One notable advantage of this library is its proficiency in handling URL formats.
+Although you have the option to use re, ``urllib``, or ``strlib`` for this purpose, let me elaborate on why the former is often the preferred choice.
+
+With ``re``, you would typically perform the following steps::
 
     import re
 
@@ -31,7 +27,7 @@ In ``re``, you could do something like the following::
 
     >>> "https://google.com"
 
-In ``urllib``, you'd do something simpler::
+On the other hand, ``urllib`` provides a simpler alternative::
 
     from urllib.parse import urlparse
 
@@ -39,11 +35,9 @@ In ``urllib``, you'd do something simpler::
 
     >>> "https://google.com"
 
-The true power of ``strlib`` comes with its ability to handle uncommon edge cases.
-
-For example, say you wanted to decode everything *but* a full-stop character.
-
-``strlib`` makes this very straightforward::
+However, the true strength of this library lies in its capability to handle uncommon edge cases.
+For instance, let's consider a scenario where you need to decode everything in a URL except for the period character.
+In such cases, ``strlib`` simplifies the process significantly::
 
     import strlib
 
@@ -52,3 +46,4 @@ For example, say you wanted to decode everything *but* a full-stop character.
 
     >>> "https://google%2Ecom"
 
+By leveraging the features provided by ``strlib``, you can handle such complex tasks with ease and clarity.
