@@ -63,7 +63,14 @@ SYMBOLS = {
 }
 
 
-__all__ = ["LITERALS", "SYMBOLS", "parse_breaks", "parse_url"]
+__all__ = ["LITERALS", "SYMBOLS", "convert_break_tags", "parse_url"]
+
+
+def prototype(function):
+    def wrapper(*args, **kwargs):
+        raise NotImplementedError("This function is not ready for production.")
+
+    return wrapper
 
 
 def _is_char(_char):
@@ -119,10 +126,22 @@ def parse_url(url, **kwargs):
     return url
 
 
-def parse_breaks(string):
-    """Parse bs4 breaks into line breaks"""
+@prototype
+def convert_break_tags(text, invert=False):
+    r"""Parse html break tags into \n."""
 
-    stripped_string = string.replace("</br>", "")
-    line_broken_string = stripped_string.replace("<br>", "\n")
+    if "<br>" not in text:
+        raise Warning("No <br> tags found in the text")
 
-    return line_broken_string
+    text = re.sub("</br>", "", text)
+
+    if invert:
+        text = text.replace("<br>", "\n")
+        text = text.replace("</br>", "")
+        text = text.replace("\n", "<br>")
+        return text.strip()
+
+    text = text.replace("<br>", "\n")
+    text = text.replace("<br>", "\n")
+
+    return text.strip()

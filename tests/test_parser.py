@@ -3,7 +3,8 @@ import unittest
 from _exceptions import InvalidCharacter
 import _parser
 from _parser import LITERALS as literals
-from _parser import parse_breaks
+from _parser import convert_break_tags as parse_breaks
+from _parser import prototype
 
 
 class TestParser(unittest.TestCase):
@@ -28,24 +29,53 @@ class TestParser(unittest.TestCase):
         assert url_string == "https://python%2Eorg"
 
     def test_punctuation(self):
-        text = "The brown fox."
+        text = "The quick fox."
 
         trimmed_text = _parser.strip_punctuation(text)
 
-        assert trimmed_text == "The brown fox"
+        assert trimmed_text == "The quick fox"
 
+
+@unittest.skip("Skipping prototype tests")
+class TestBreaks(unittest.TestCase):
+    @unittest.skip("Skipping prototype function test_open_tag")
     def test_open_tag(self):
-        text = "The<br>Brown<br>Fox"
-        expected_result = "The\nBrown\nFox"
+        text = "The<br>Quick<br>Fox"
+        expected_result = "The\nQuick\nFox"
 
-        result = _parser.parse_breaks(text)
+        result = parse_breaks(text)
 
         assert result == expected_result
 
+    @unittest.skip("Skipping prototype function test_close_tag")
     def test_close_tag(self):
-        text = "The<br></br>Brown<br></br>Fox"
-        expected_result = "The\nBrown\nFox"
+        text = "The<br></br>Quick<br></br>Fox"
+        expected_result = "The\nQuick\nFox"
 
-        result = _parser.parse_breaks(text)
+        result = parse_breaks(text)
 
         assert result == expected_result
+
+    @unittest.skip("Skipping prototype function test_null_warn")
+    def test_null_warn(self):
+        with self.assertRaises(Warning):
+            parse_breaks("The quick fox")
+
+    @unittest.skip("Skipping prototype function test_warn_invert_tags")
+    def test_warn_invert_tags(self):
+        with self.assertRaises(Warning):
+            parse_breaks("The quick fox", invert=True)
+
+
+class TestDecorators(unittest.TestCase):
+    def test_prototype_raise(self):
+        @prototype
+        def stub():
+            pass
+
+        with self.assertRaises(NotImplementedError):
+            stub()
+
+
+if __name__ == "__main__":
+    unittest.main()

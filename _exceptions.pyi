@@ -6,7 +6,6 @@ Types for _exceptions.py
 
 from _typeshed import NoneType
 
-
 class InvalidCharacter(Exception):
     char: str
 
