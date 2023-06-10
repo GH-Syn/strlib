@@ -1,4 +1,5 @@
 *draft.md
+.pytest_cache/
 *config.json
 *.ini
 *.log
