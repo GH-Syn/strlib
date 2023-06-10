@@ -1,7 +1,7 @@
 Functions
 =========
 
-.. py:function:: strlib.strip_punctuation(value, *chars)
+.. py:function:: strlib.strip_punctuation(value, *chars, ignore_terminal=False)
    :noindex:
 
    Remove punctuation characters from a string.
@@ -10,6 +10,8 @@ Functions
    :type value: str
    :param chars: Disregard selective punctuation characters
    :type chars: str
+   :param ignore_terminal: Ignore end character, inclusive of chars parameter
+   :type ignore_terminal: bool
    :raise InvalidCharacterError: If a character in chars is not punctual
    :return: A formatted version of `value` with punctuation removed.
 
