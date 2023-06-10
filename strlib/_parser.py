@@ -57,24 +57,70 @@ SYMBOLS = {
 }
 
 
-__all__ = ["LITERALS", "SYMBOLS", "convert_break_tags", "parse_url"]
-
+__all__ = ["LITERALS", "SYMBOLS", "convert_break_tags",
+           "parse_url", "lower_sentence", "insert_spacing"]
 
 def _is_char(_char):
     """Assert `char` is valid punctuation character."""
 
     return _char in LITERALS
 
+def insert_spacing(sentence: str):
+    """Insert spacing breaks in front of punctuation characters.
+
+    Example
+    =======
+    >>> insert_spacing("Test.Test.Test!")
+    >>> "Test. Test. Test!"
+
+    :param sentence: A string that isn't formatted - see example as shown above
+    """
+
+    _sentence = list(sentence)
+
+    for index, word in enumerate(_sentence):
+        if index < len(_sentence):
+            if word == any(["!", ".", "?"]):
+                if _sentence[index + 1] != " ":
+                    _sentence.insert(index + 1, " ")
+
+def lower_sentence(sentence: str):
+    """Convert every character that isn't the start of a sentece to lower case.
+
+    :param sentence: Required string value with >= 2 words *including spaces*.
+    """
+
+    _sentence = list(sentence)
+
+    for index, letter in enumerate(_sentence):
+        if index == 0:
+            continue
+        elif index < len(_sentence) and letter.isalnum():
+            if _sentence[index-2] != any(["!", ".", "?"]):
+                if _sentence[index].isupper():
+                    _sentence[index] = _sentence[index].lower()
+            elif _sentence[index-2].islower():
+                _sentence[index-2] = sentence[index-2].upper()
+        else:
+            Warning(f"{letter} is not alpha-numeric.")
+
+    return "".join(_sentence)
 
 def strip_punctuation(value, *chars, ignore_terminal=False):
     """Remove punctuation characters from a string.
 
-   :param value: Required string presumably containing punctuation
-   :param terminal: Ignore ending character of value
+    Example
+    =======
 
-    >>> sentence = "The quick brown fox .jumped over the lazy dog."
-    >>> strip_punctuation(sentence)
+    >>> strip_punctuation("The quick brown fox .jumped over the lazy dog.", ".")
     >>> "The quick brown fox jumped over the lazy dog"
+
+    >>> strip_punctuation("The quick brown fox! They jumped over the lazy dog.", ".", "!", ignore_terminal=True)
+    >>> "The quick brown fox They jumped over the lazy dog!"
+
+    :param value: Required string presumably containing punctuation
+    :param terminal: Ignore ending character of value
+    :return: String with punctuation removed.
     """
 
     _literals = LITERALS.copy()
