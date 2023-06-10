@@ -1,4 +1,4 @@
-name: Github Actions Python Standard
+name: Coverage
 on:
   push:
     branches:
