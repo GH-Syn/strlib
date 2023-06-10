@@ -1,10 +1,18 @@
-======
-💡 FAQ
-======
+===
+FAQ
+===
 
+Purpose
+=======
 
-How is this library different from ``re``?
-==========================================
+This library is an expanse of many functions I find myself writing due to not
+enough support or customizability from existing libraries. This library hopes
+to give both the boilerplate and the mutability to the user, therefore eliminating
+mental and physical overhead having to write out string utility functions.
+This library will hopefully grow over time, as I add more to it.
+
+What can this library do that others can't?
+===========================================
 
 While ``re`` has very powerful syntax, it's difficult to utilize if you're not
 already familiar with the regular expression syntax. This library minimizes
@@ -44,17 +52,3 @@ For example, say you wanted to decode everything *but* a full-stop character.
 
     >>> "https://google%2Ecom"
 
-What benefit does this library give?
-====================================
-
-This library is an expanse of many functions I find myself writing due to not
-enough support or customizability from existing libraries. This library hopes
-to give both the boilerplate and the mutability to the user, therefore eliminating
-mental and physical overhead having to write out string utility functions.
-This library will hopefully grow over time, as I add more to it.
-
-Does this library even work?
-============================
-It's always a good idea to ask these sorts of questions before using a library.
-Especially when the library isn't very popular. To give an idea of if this library
-works or not, I invite you to look at the code coverage.
