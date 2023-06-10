@@ -7,6 +7,7 @@ String operations and mutability functions for improvement to `re`.
 """
 
 import re
+from _decorators import prototype
 from _exceptions import InvalidCharacter
 
 
@@ -64,13 +65,6 @@ SYMBOLS = {
 
 
 __all__ = ["LITERALS", "SYMBOLS", "convert_break_tags", "parse_url"]
-
-
-def prototype(function):
-    def wrapper(*args, **kwargs):
-        raise NotImplementedError("This function is not ready for production.")
-
-    return wrapper
 
 
 def _is_char(_char):

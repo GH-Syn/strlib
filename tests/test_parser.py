@@ -4,7 +4,6 @@ from _exceptions import InvalidCharacter
 import _parser
 from _parser import LITERALS as literals
 from _parser import convert_break_tags as parse_breaks
-from _parser import prototype
 
 
 class TestParser(unittest.TestCase):
@@ -65,17 +64,6 @@ class TestBreaks(unittest.TestCase):
     def test_warn_invert_tags(self):
         with self.assertRaises(Warning):
             parse_breaks("The quick fox", invert=True)
-
-
-class TestDecorators(unittest.TestCase):
-    def test_prototype_raise(self):
-        @prototype
-        def stub():
-            pass
-
-        with self.assertRaises(NotImplementedError):
-            stub()
-
 
 if __name__ == "__main__":
     unittest.main()
