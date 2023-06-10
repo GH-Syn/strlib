@@ -1,40 +1,28 @@
-# -*- coding: utf-8 -*-
+# Configuration file for the Sphinx documentation builder.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-import os
-import sys
+# -- Project information -----------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-sys.path.append(os.path.abspath("../../../parser"))
-sys.path.append(os.path.abspath("../../.."))
-sys.path.append(os.path.abspath("../.."))
-sys.path.append(os.path.abspath(".."))
+project = 'strlib'
+copyright = '2023, Joshua Rose'
+author = 'Joshua Rose'
+release = '0.0.0'
 
-html_theme = "press"
+# -- General configuration ---------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-source_suffix = {
-    ".rst": "restructuredtext",
-    ".txt": "markdown",
-    ".md": "markdown",
-}
+extensions = []
+
+templates_path = ['_templates']
+exclude_patterns = []
 
 
-# The master toctree document (without the file extension)
-master_doc = "index"
 
-project = "strlib"
-copyright = "2023, Joshua Rose"
-author = "Joshua Rose"
-release = "0.1.0a1"
+# -- Options for HTML output -------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_static_path = ["_static"]
-
-extensions = [
-    "sphinx.ext.autosummary",
-    "sphinx.ext.autodoc",
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.napoleon",
-    "myst_parser",
-    "sphinx.ext.todo",
-]
-
-# paths that contain templates, *relative* to this file.
-templates_path = ["_templates"]
+html_theme = 'classic'
+html_static_path = ['_static']
