@@ -98,14 +98,14 @@ def strip_punctuation(value, *chars):
     return value
 
 
-def parse_url(url, *_chars):
+def parse_url(url: str, *_chars):
     """Parse url into an alpha-numeric string.
 
-    :param *chars: characters to exclude.
+    :param *args: characters to exclude.
     """
 
-    decoded_url = "".join(
-        SYMBOLS.get(char, char) for char in url if char not in _chars
-    )
+    for symbol, replacement in SYMBOLS.items():
+        if replacement not in _chars:
+            url = url.replace(symbol, replacement)
 
-    return decoded_url
+    return url
