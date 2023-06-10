@@ -75,5 +75,5 @@ jobs:
     - id: deployment
       uses: sphinx-notes/pages@v3
       with:
-        documentation_path: ./wiki/source
+        documentation_path: ./docs/source
         cache: true
