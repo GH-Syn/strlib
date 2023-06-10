@@ -23,7 +23,7 @@ master_doc = "index"
 project = "strlib"
 copyright = "2023, Joshua Rose"
 author = "Joshua Rose"
-release = "0.0.0-development"
+release = "0.1.0a1"
 
 html_static_path = ["_static"]
 
