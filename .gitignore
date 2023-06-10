@@ -39,6 +39,9 @@ env/
 .idea/
 *.idea
 
+docs/build
+docs/_build
+
 # Jupyter Notebook
 .ipynb_checkpoints/
 
