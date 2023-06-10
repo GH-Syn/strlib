@@ -16,7 +16,7 @@ class TestParser(unittest.TestCase):
 
     def test_valid_literals(self):
         with self.assertRaises(PendingDeprecationWarning):
-            _parser.strip_punctuation("a")
+            _parser.strip_punctuation("test", "nonchar")  # pyright: ignore
 
     def test_url(self):
         url_string = _parser.parse_url("https%3A%2F%2Fgoogle%2Ecom")
@@ -29,3 +29,10 @@ class TestParser(unittest.TestCase):
         )  # ...
 
         assert url_string == "https://python%2Eorg"
+
+    def test_punctuation(self):
+        text = "The brown fox."
+
+        trimmed_text = _parser.strip_punctuation(text)
+
+        assert trimmed_text == "The brown fox"

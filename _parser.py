@@ -81,12 +81,15 @@ def strip_punctuation(value, *chars):
     """
 
     _literals = LITERALS.copy()  # *slightly* faster 🚀
+    value = list(value)
 
-    if not _is_char(value) and not len(chars):
-        # NOTE code returns due to `ValueError`
-        raise PendingDeprecationWarning(
-            "{val} is not a valid punctuation character".format(val=value)
-        )
+    if len(chars):
+        for char in chars:
+            if not _is_char(char):
+                # NOTE code returns due to `ValueError`
+                raise PendingDeprecationWarning(
+                    "{val} is not a valid punctuation character".format(val=value)
+                )
 
     if len(chars) and not _is_chars(chars):
         _literals.extend(chars)
@@ -95,7 +98,7 @@ def strip_punctuation(value, *chars):
         if literal in value:
             value.remove(literal)
 
-    return value
+    return "".join(value)
 
 
 def parse_url(url: str, **kwargs):
