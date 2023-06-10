@@ -1,12 +1,18 @@
-"""
-Author: Joshua Rose <joshuarose099@gmail.com>
+"""String mutability and operational utility functions.
 
-String operations and mutability functions for improvement to `re`.
+This module contains various functions that help with grammar, formatting,
+url handling, encoding and decoding and so on. Please note that exceptions
+*are* defined in ``_exceptions.py```.
 
-`Exceptions are defined in ``_exceptions.py```
+This modules documentation styling follows the `Google Python Style Guide`_.
+
+.. _Google Python Style Guide:
+   https://google.github.io/styleguide/pyguide.html
+
 """
 
 import re
+from typing_extensions import deprecated
 from ._decorators import prototype
 from ._exceptions import InvalidCharacter
 
