@@ -8,14 +8,8 @@
   </p>
 </div>
 
-
-
 ## Description
 `strlib` is a Python library that provides mutative functionality for strings. It's purpose is to provide an alternative to existing libaries such as `re` through a comprehensive set of functions.
-
-## Rationale
-This inspiration / purpose for creating this library was because in pre-refactor stage of creating `urban`, I found making a plethora of utility functoins quite difficult to navigate and document.
-This library hopes to mitigate the utility overhead through modularized formatting utility functions.
 
 ## Usage
 ```python
@@ -28,15 +22,6 @@ This library hopes to mitigate the utility overhead through modularized formatti
 >>> strlib.strip_punctuation("The quick brown fox .jumped over the lazy dog.")
 >>> "The quick brown fox jumped over the lazy dog"
 ```
-
-## Contributions
-Contributions are always welcome.
-
-## Documentation
-The documentation for this project is generated with [Sphinx](https://www.sphinx-doc.org/), built with this [workflow](https://github.com/GH-Syn/strlib/blob/master/.github/workflows/sphinx.yml), and deployed with [Github Pages](https://pages.github.com/).
-
-## License
-This library falls under the MIT license.
 
 <h2></h2>
 <div align="center">
