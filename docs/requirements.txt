@@ -1,1 +1,3 @@
-setuptools>=65.5.1
+sphinx
+myst_parser
+sphinx_press_theme
