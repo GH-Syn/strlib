@@ -1,5 +1,4 @@
 <div align="center">
-  <h1><code>strlib</code></h1>
   <b>Eliminate boilerplate. Enhance efficiency.</b>
   <br><br>
   <p>
@@ -18,11 +17,6 @@ The documentation for `strlib` is generated using Sphinx.
 ## Rationale
 This inspiration / purpose for creating this library was because in pre-refactor stage of creating `urban`, I found making a plethora of utility functoins quite difficult to navigate and document.
 This library hopes to mitigate the utility overhead through modularized formatting utility functions.
-
-## FAQ
- - [**How is this different from `re`?**](https://gh-syn.github.io/strlib/faq.html#how-is-this-library-different-from-re)
- - [**What benefit does this library give?**](https://gh-syn.github.io/strlib/faq.html#what-benefit-does-this-library-give)
- - [**Does this library even work?**](https://gh-syn.github.io/strlib/faq.html#does-this-library-even-work)
 
 ## Contributions
 Contributions are always welcome.
