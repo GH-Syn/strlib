@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath("../../.."))
 sys.path.append(os.path.abspath("../.."))
 sys.path.append(os.path.abspath(".."))
 
-html_theme = "press"
+html_theme = "sphinx_rtd_theme"
 
 source_suffix = {
     ".rst": "restructuredtext",

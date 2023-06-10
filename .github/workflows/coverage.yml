@@ -6,13 +6,13 @@ on:
   pull_request:
     branches:
       - master
-      
+
 # Cancel any in-progress job or run
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
 concurrency:
   group: gh-${{ github.ref }}
   cancel-in-progress: true
-  
+
 jobs:
   test-and-upstream:
     strategy:
@@ -31,7 +31,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pytest-cov
-          pip install requests
       - name: Run Script
         run: |
           pytest --cov=./ --cov-report=xml
@@ -63,11 +62,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install pytest-cov
-        pip install requests
-        pip install setuptools>=65.5.1
         pip install sphinx
         pip install myst_parser
-        pip install sphinx_press_theme
+        pip install sphinx-rtd-theme
     - run: |
         sudo locale-gen en_US.UTF-8
         sudo update-locale
