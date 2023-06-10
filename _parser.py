@@ -7,8 +7,8 @@ String operations and mutability functions for improvement to `re`.
 """
 
 import re
-from _decorators import prototype
-from _exceptions import InvalidCharacter
+from ._decorators import prototype
+from ._exceptions import InvalidCharacter
 
 
 LITERALS = [

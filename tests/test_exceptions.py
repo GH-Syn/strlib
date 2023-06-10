@@ -1,6 +1,6 @@
 import unittest
 
-from _exceptions import InvalidCharacter
+from .._exceptions import InvalidCharacter
 
 
 class TestInvalidCharacter(unittest.TestCase):

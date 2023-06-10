@@ -1,3 +1,6 @@
+__all__ = ["prototype"]
+
+
 def prototype(function, *args, **kwargs):
     """Mark a function as a work in progress.
 

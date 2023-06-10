@@ -1,9 +1,9 @@
 import unittest
 
-from _exceptions import InvalidCharacter
-import _parser
-from _parser import LITERALS as literals
-from _parser import convert_break_tags as parse_breaks
+from .._exceptions import InvalidCharacter
+from .. import _parser
+from .._parser import LITERALS as literals
+from .._parser import convert_break_tags as parse_breaks
 
 
 class TestParser(unittest.TestCase):
@@ -64,6 +64,7 @@ class TestBreaks(unittest.TestCase):
     def test_warn_invert_tags(self):
         with self.assertRaises(Warning):
             parse_breaks("The quick fox", invert=True)
+
 
 if __name__ == "__main__":
     unittest.main()

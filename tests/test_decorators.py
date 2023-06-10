@@ -1,6 +1,6 @@
 import unittest
 
-from _decorators import prototype
+from .._decorators import prototype
 
 
 class TestDecorators(unittest.TestCase):
@@ -11,6 +11,7 @@ class TestDecorators(unittest.TestCase):
 
         with self.assertRaises(NotImplementedError):
             stub()
+
 
 if __name__ == "__main__":
     unittest.main()
