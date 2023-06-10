@@ -91,9 +91,6 @@ def strip_punctuation(value, *chars):
                     "{val} is not a valid punctuation character".format(val=value)
                 )
 
-    if len(chars) and not _is_chars(chars):
-        _literals.extend(chars)
-
     for literal in _literals:
         if literal in value:
             value.remove(literal)
