@@ -3,15 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-
-======
-Strlib
-======
+🥜 In a nutshell
+================
 
 Strlib removes the boilerplate and hundreds of utility functions, allowing you
 to focus on what matters.
 
-Trim sentences::
+Trim sentences
+----------------
+::
 
     sentence = "The quick brown fox .jumped over the lazy dog."
     formatted_sentence = strip_punctuation(sentence)
@@ -19,7 +19,9 @@ Trim sentences::
 
     >>> "The quick brown fox jumped over the lazy dog"
 
-Decode url strings::
+Decode URL strings
+--------------------
+::
 
     import strlib
 
@@ -28,10 +30,21 @@ Decode url strings::
 
     >>> "https://google.com"
 
-Exclude characters from a url string::
+Exclude characters from a URL
+-------------------------------
+::
 
     url_string = _parser.parse_url("https%3A%2F%2Fpython%2Eorg", ".")  # ...
     print(url_string)
 
     >>> "https://python%2Eorg"
+
+
+📖 Contents
+-----------
+
+.. toctree::
+    :maxdepth: 2
+
+    faq
 

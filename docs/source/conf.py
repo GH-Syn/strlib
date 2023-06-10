@@ -9,6 +9,16 @@ sys.path.append(os.path.abspath(".."))
 
 html_theme = "press"
 
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".txt": "markdown",
+    ".md": "markdown",
+}
+
+
+# The master toctree document (without the file extension)
+master_doc = "index"
+
 project = "strlib"
 copyright = "2023, Joshua Rose"
 author = "Joshua Rose"
