@@ -12,7 +12,6 @@ This modules documentation styling follows the `Google Python Style Guide`_.
 """
 
 import re
-from typing_extensions import deprecated
 from ._decorators import prototype
 from ._exceptions import InvalidCharacter
 
