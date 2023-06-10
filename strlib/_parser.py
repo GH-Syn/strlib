@@ -74,7 +74,9 @@ def _is_char(_char):
 
 
 def strip_punctuation(value, *chars):
-    """Remove punctuation characters in `value`.
+    """Remove punctuation characters from a string.
+
+   :param value: Required string presumably containing punctuation
 
     >>> sentence = "The quick brown fox .jumped over the lazy dog."
     >>> strip_punctuation(sentence)

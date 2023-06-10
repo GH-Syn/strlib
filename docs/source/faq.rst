@@ -47,3 +47,35 @@ In such cases, ``strlib`` simplifies the process significantly::
     >>> "https://google%2Ecom"
 
 By leveraging the features provided by ``strlib``, you can handle such complex tasks with ease and clarity.
+But if you're just looking for a quick preview / overview of this library, here
+are a few of my favorite bits and pieces.
+
+Trim sentences
+---------------
+
+This function is useful for general syntax / grammar polish::
+
+    >>> strlib.strip_punctuation("The quick brown fox .jumped over the lazy dog.")
+    >>> "The quick brown fox jumped over the lazy dog"
+
+
+.. Note:: You can also specify characters to ignore as well as follows::
+
+    >>> strlib.strip_punctuation("My toe... oh #!@$%*", ".")
+    >>> "My toe oh #!@$%*"
+
+
+Decode URL strings
+------------------
+
+You can parse a URL::
+
+    >>> strlib.parse_url("https%3A%2F%2Fgoogle%2Ecom")
+    >>> "https://google.com"
+
+.. Note:: You can also exclude characters::
+
+    >>> strlib.parse_url("https%3A%2F%2Fpython%2Eorg", ".")
+    >>> "https://python%2Eorg"
+
+
