@@ -2,10 +2,10 @@ name: Coverage
 on:
   push:
     branches:
-      - master
+      - '*'
   pull_request:
     branches:
-      - master
+      - '*'
 
 # Cancel any in-progress job or run
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
@@ -65,6 +65,7 @@ jobs:
         pip install sphinx
         pip install myst_parser
         pip install sphinx-rtd-theme
+        pip install sphinx_rtd_theme
     - run: |
         sudo locale-gen en_US.UTF-8
         sudo update-locale
