@@ -85,24 +85,38 @@ def insert_spacing(sentence: str):
                     _sentence.insert(index + 1, " ")
 
 def lower_sentence(sentence: str):
-    """Convert every character that isn't the start of a sentece to lower case.
+    """Convert every character that isn't the start of a sentence to lowercase.
 
-    :param sentence: Required string value with >= 2 words *including spaces*.
+    :param sentence: Required string value with >= 2 words
     """
 
     _sentence = list(sentence)
 
     for index, letter in enumerate(_sentence):
-        if index == 0:
+        if index == 1:
             continue
-        elif index < len(_sentence) and letter.isalnum():
-            if _sentence[index-2] != any(["!", ".", "?"]):
-                if _sentence[index].isupper():
-                    _sentence[index] = _sentence[index].lower()
-            elif _sentence[index-2].islower():
-                _sentence[index-2] = sentence[index-2].upper()
-        else:
-            Warning(f"{letter} is not alpha-numeric.")
+        if index + 1 < len(_sentence) and letter.isalnum():
+            if letter in ["!", ".", "?"]:
+                # If there is a space after punctuation
+                if _sentence[index+1] == " ":
+                    # Then capitalize the letter after it if it's a letter
+                    if _sentence[index+2].isalnum():
+                        _sentence[index+2] = _sentence[index-2].upper()
+                # If no space after punctuation, capitalize letter if alphanumeric
+                elif _sentence[index+1].isalnum():
+                    _sentence[index+1] = _sentence[index+1].upper()
+                # Otherwise convert it to lowercase
+            elif _sentence[index-2] in ["!", ".", "?"]:
+                _sentence[index] = _sentence[index].upper()
+            else:
+                # This is just going to be punctuation ...
+                _sentence[index] = _sentence[index].lower()
+
+    # Minor tweaks
+    if _sentence[1].isupper():
+        _sentence[1] = _sentence[1].lower()
+    if not _sentence[0].isupper():
+        _sentence[0] = sentence[0].upper()
 
     return "".join(_sentence)
 

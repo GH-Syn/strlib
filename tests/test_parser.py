@@ -47,6 +47,13 @@ class TestParser(unittest.TestCase):
 
         assert trimmed_text == "The quick fox"
 
+    def test_lower_sentence(self):
+        text = "The quick Fox! Oh wow."
+
+        result = _parser.lower_sentence(text)
+
+        assert result == "The quick fox! Oh wow."
+
 
 @unittest.skip("Skipping prototype tests")
 class TestBreaks(unittest.TestCase):
