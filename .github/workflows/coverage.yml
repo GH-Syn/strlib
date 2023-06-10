@@ -11,12 +11,12 @@ on:
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
 concurrency:
   group: gh-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   test-and-upstream:
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         python-version: ["3.11"]
     runs-on: ubuntu-latest
@@ -113,5 +113,5 @@ jobs:
     - id: deployment
       uses: sphinx-notes/pages@v3
       with:
-        documentation_path: ./docs/source
+        documentation_path: ./wiki/source
         cache: true
