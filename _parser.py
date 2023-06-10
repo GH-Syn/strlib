@@ -66,12 +66,6 @@ def _is_char(_char):
     return _char in LITERALS
 
 
-def _is_chars(*_chars):
-    """Assert all chars are valid punctuation characters."""
-
-    return all(char in LITERALS for char in _chars)
-
-
 def strip_punctuation(value, *chars):
     """Remove punctuation characters in `value`.
 
