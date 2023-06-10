@@ -1,10 +1,15 @@
 """
 Author: Joshua Rose <joshuarose099@gmail.com>
 
-`Custom exception classes for ``_parser.py```
+Types for _exceptions.py
 """
 
+from _typeshed import NoneType
+
+
 class InvalidCharacter(Exception):
-    def __init__(self, char):
+    char: str
+
+    def __init__(self, char: str) -> NoneType:
         super().__init__(char)
         self.char = char

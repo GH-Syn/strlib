@@ -2,6 +2,8 @@
 Author: Joshua Rose <joshuarose099@gmail.com>
 
 String operations and mutability functions for improvement to `re`.
+
+`Exceptions are defined in ``_exceptions.py```
 """
 
 from _exceptions import InvalidCharacter
@@ -77,13 +79,13 @@ def strip_punctuation(value, *chars):
     >>> "The quick brown fox jumped over the lazy dog"
     """
 
-    _literals = LITERALS.copy()  # *slightly* faster 🚀
+    _literals = LITERALS.copy()
     value = list(value)
 
     if len(chars):
         for char in chars:
             if not _is_char(char):
-                # NOTE code returns due to `ValueError`
+                # NOTE code returns due to `InvalidCharacter`
                 raise InvalidCharacter(
                     f"{char} is not a valid character literal"
                 )
