@@ -1,12 +1,5 @@
-"""
-Author: Joshua Rose <joshuarose099@gmail.com>
-
-String operations and mutability functions for improvement to `re`.
-
-`Exceptions are defined in ``_exceptions.py```
-"""
-
 import re
+
 from ._decorators import prototype
 from ._exceptions import InvalidCharacter
 
@@ -73,10 +66,11 @@ def _is_char(_char):
     return _char in LITERALS
 
 
-def strip_punctuation(value, *chars):
+def strip_punctuation(value, *chars, ignore_terminal=False):
     """Remove punctuation characters from a string.
 
    :param value: Required string presumably containing punctuation
+   :param terminal: Ignore ending character of value
 
     >>> sentence = "The quick brown fox .jumped over the lazy dog."
     >>> strip_punctuation(sentence)
@@ -85,6 +79,10 @@ def strip_punctuation(value, *chars):
 
     _literals = LITERALS.copy()
     value = list(value)
+    terminal = value[-1:]
+
+    if ignore_terminal:
+        value.pop(len(value) - 1)
 
     if len(chars):
         for char in chars:
@@ -97,6 +95,9 @@ def strip_punctuation(value, *chars):
     for literal in _literals:
         if literal in value:
             value.remove(literal)
+
+    if ignore_terminal:
+        value.append(*terminal)
 
     return "".join(value)
 
