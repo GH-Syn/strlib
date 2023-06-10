@@ -4,6 +4,9 @@ Author: Joshua Rose <joshuarose099@gmail.com>
 String operations and mutability functions for improvement to `re`.
 """
 
+from _exceptions import InvalidCharacter
+
+
 LITERALS = [
     ".",
     ",",
@@ -57,7 +60,7 @@ SYMBOLS = {
 }
 
 
-__all__ = ["LITERALS"]
+__all__ = ["LITERALS", "SYMBOLS"]
 
 
 def _is_char(_char):
@@ -81,8 +84,8 @@ def strip_punctuation(value, *chars):
         for char in chars:
             if not _is_char(char):
                 # NOTE code returns due to `ValueError`
-                raise PendingDeprecationWarning(
-                    "{val} is not a valid punctuation character".format(val=value)
+                raise InvalidCharacter(
+                    f"{char} is not a valid character literal"
                 )
 
     for literal in _literals:
@@ -92,7 +95,7 @@ def strip_punctuation(value, *chars):
     return "".join(value)
 
 
-def parse_url(url: str, **kwargs):
+def parse_url(url, **kwargs):
     """Parse url into an alpha-numeric string.
 
     Usage::

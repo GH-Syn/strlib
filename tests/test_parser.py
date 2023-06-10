@@ -1,7 +1,8 @@
 import unittest
 
+from _exceptions import InvalidCharacter
 import _parser
-from _parser import LITERALS as literals  # pyright: ignore unknown import
+from _parser import LITERALS as literals
 
 
 class TestParser(unittest.TestCase):
@@ -10,7 +11,7 @@ class TestParser(unittest.TestCase):
             assert _parser._is_char(literal)
 
     def test_valid_literals(self):
-        with self.assertRaises(PendingDeprecationWarning):
+        with self.assertRaises(InvalidCharacter):
             _parser.strip_punctuation("test", "nonchar")  # pyright: ignore
 
     def test_url(self):
