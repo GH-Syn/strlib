@@ -18,6 +18,18 @@ The documentation for `strlib` is generated using Sphinx.
 This inspiration / purpose for creating this library was because in pre-refactor stage of creating `urban`, I found making a plethora of utility functoins quite difficult to navigate and document.
 This library hopes to mitigate the utility overhead through modularized formatting utility functions.
 
+## Usage
+```python
+>>> import strlib
+
+>>> # Parse URL and exclude periods
+>>> strlib.parse_url("https%3A%2F%2Fgoogle%2Ecom", exclude=".")
+>>> "https://google%2Ecom"
+
+>>> strlib.strip_punctuation("The quick brown fox .jumped over the lazy dog.")
+>>> "The quick brown fox jumped over the lazy dog"
+```
+
 ## Contributions
 Contributions are always welcome.
 
