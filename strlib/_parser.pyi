@@ -1,7 +1,11 @@
 """
-Author: Joshua Rose <joshuarose099@gmail.com>
+This module contains various utility functions.
+These functions help modify mutable string types.
 
-Types for _parser.py
+Usage
+=======
+>>> strip_punctuation("Hi! 👋")
+>>> "Hi 👋"  # Removes '!' punctuation character
 """
 
 from _typeshed import AnyOrLiteralStr
