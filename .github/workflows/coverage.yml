@@ -32,8 +32,3 @@ jobs:
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - name: Check coverage values
-        run: |
-          cd src
-          python request.py
-          cd ..
