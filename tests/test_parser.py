@@ -5,7 +5,7 @@ import sys
 
 sys.path.append(os.getcwd())
 
-from ..strlib._exceptions import InvalidCharacter
+from ..strlib._exceptions import InvalidCharacterError
 from ..strlib import _parser
 from ..strlib._parser import LITERALS as literals
 from ..strlib._parser import convert_break_tags as parse_breaks
@@ -17,7 +17,7 @@ class TestParser(unittest.TestCase):
             assert _parser._is_char(literal)
 
     def test_valid_literals(self):
-        with self.assertRaises(InvalidCharacter):
+        with self.assertRaises(InvalidCharacterError):
             _parser.strip_punctuation("test", "nonchar")  # pyright: ignore
 
     def test_url(self):

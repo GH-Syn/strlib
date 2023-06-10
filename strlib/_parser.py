@@ -13,7 +13,7 @@ This modules documentation styling follows the `Google Python Style Guide`_.
 
 import re
 from ._decorators import prototype
-from ._exceptions import InvalidCharacter
+from ._exceptions import InvalidCharacterError
 
 
 LITERALS = [
@@ -95,7 +95,7 @@ def strip_punctuation(value, *chars):
         for char in chars:
             if not _is_char(char):
                 # NOTE code returns due to `InvalidCharacter`
-                raise InvalidCharacter(
+                raise InvalidCharacterError(
                     f"{char} is not a valid character literal"
                 )
 
