@@ -16,6 +16,7 @@ class InvalidCharacterError(Exception):
         char (str): Character literal raised from error
 
     """
+
     char: str
 
     def __init__(self, char: str) -> NoneType:

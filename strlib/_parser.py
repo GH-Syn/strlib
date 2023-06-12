@@ -57,23 +57,26 @@ SYMBOLS = {
 }
 
 
-__all__ = ["LITERALS", "SYMBOLS", "convert_break_tags",
-           "parse_url", "lower_sentence", "insert_spacing"]
+__all__ = [
+    "LITERALS",
+    "SYMBOLS",
+    "convert_break_tags",
+    "parse_url",
+    "lower_sentence",
+    "insert_spacing",
+]
+
 
 def _is_char(_char):
     """Assert `char` is valid punctuation character."""
 
     return _char in LITERALS
 
+
 def insert_spacing(sentence: str):
     """Insert spacing breaks in front of punctuation characters.
 
-    Example
-    =======
-    >>> insert_spacing("Test.Test.Test!")
-    >>> "Test. Test. Test!"
-
-    :param sentence: A string that isn't formatted - see example as shown above
+    :param sentence: A string that is formatted - see example as shown above
     """
 
     _sentence = list(sentence)
@@ -84,7 +87,9 @@ def insert_spacing(sentence: str):
                 if _sentence[index + 1] != " ":
                     _sentence.insert(index + 1, " ")
 
+
 def lower_sentence(sentence: str):
+    # TODO: remove str type hint
     """Convert every character that isn't the start of a sentence to lowercase.
 
     :param sentence: Required string value with >= 2 words
@@ -98,15 +103,15 @@ def lower_sentence(sentence: str):
         if index + 1 < len(_sentence) and letter.isalnum():
             if letter in ["!", ".", "?"]:
                 # If there is a space after punctuation
-                if _sentence[index+1] == " ":
+                if _sentence[index + 1] == " ":
                     # Then capitalize the letter after it if it's a letter
-                    if _sentence[index+2].isalnum():
-                        _sentence[index+2] = _sentence[index-2].upper()
+                    if _sentence[index + 2].isalnum():
+                        _sentence[index + 2] = _sentence[index - 2].upper()
                 # If no space after punctuation, capitalize letter if alphanumeric
-                elif _sentence[index+1].isalnum():
-                    _sentence[index+1] = _sentence[index+1].upper()
+                elif _sentence[index + 1].isalnum():
+                    _sentence[index + 1] = _sentence[index + 1].upper()
                 # Otherwise convert it to lowercase
-            elif _sentence[index-2] in ["!", ".", "?"]:
+            elif _sentence[index - 2] in ["!", ".", "?"]:
                 _sentence[index] = _sentence[index].upper()
             else:
                 # This is just going to be punctuation ...
@@ -120,17 +125,9 @@ def lower_sentence(sentence: str):
 
     return "".join(_sentence)
 
+
 def strip_punctuation(value, *chars, ignore_terminal=False):
     """Remove punctuation characters from a string.
-
-    Example
-    =======
-
-    >>> strip_punctuation("The quick brown fox .jumped over the lazy dog.", ".")
-    >>> "The quick brown fox jumped over the lazy dog"
-
-    >>> strip_punctuation("The quick brown fox! They jumped over the lazy dog.", ".", "!", ignore_terminal=True)
-    >>> "The quick brown fox They jumped over the lazy dog!"
 
     :param value: Required string presumably containing punctuation
     :param terminal: Ignore ending character of value
@@ -163,16 +160,7 @@ def strip_punctuation(value, *chars, ignore_terminal=False):
 
 
 def parse_url(url, **kwargs):
-    """Parse url into an alpha-numeric string.
-
-    Usage::
-
-        url_string = _parser.parse_url(
-                "https%3A%2F%2Fpython%2Eorg", exceptions="."
-        )
-
-        >>> "https://python%2Eorg"
-    """
+    """Parse url into an alpha-numeric string."""
 
     exceptions = kwargs["exclude"] if len(kwargs) else []
 
