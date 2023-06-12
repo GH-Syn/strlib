@@ -73,7 +73,7 @@ def _is_char(_char):
     return _char in LITERALS
 
 
-def insert_spacing(sentence: str):
+def insert_spacing(sentence):
     """Insert spacing breaks in front of punctuation characters.
 
     :param sentence: A string that is formatted - see example as shown above
@@ -88,8 +88,7 @@ def insert_spacing(sentence: str):
                     _sentence.insert(index + 1, " ")
 
 
-def lower_sentence(sentence: str):
-    # TODO: remove str type hint
+def lower_sentence(sentence):
     """Convert every character that isn't the start of a sentence to lowercase.
 
     :param sentence: Required string value with >= 2 words
